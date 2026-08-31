@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Sameer | Admin</title>
+
+    <!-- Flask loads CSS from static folder -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     NAVIGATION
+================================================== -->
+
+<nav>
+
+    <!-- Flask route back to portfolio -->
+
+    <div style="display:flex; gap:10px;">
+
+    <a
+        href="{{ url_for('home') }}"
+        class="view-site-btn"
+    >
+        🌐 View Website
+    </a>
+
+    <a
+        href="{{ url_for('logout') }}"
+        class="view-site-btn"
+    >
+        🔒 Logout
+    </a>
+
+</div>
+
+</nav>
+
+
+
+<!-- ==================================================
+     ADMIN PANEL
+================================================== -->
+
+<div class="admin">
+
+
+    <h1 style="
+        text-align:center;
+        margin:30px 0;
+        background:linear-gradient(90deg,#00c6ff,#8a2be2);
+        -webkit-background-clip:text;
+        -webkit-text-fill-color:transparent;
+    ">
+
+        ⚙️ Portfolio Update Panel
+
+    </h1>
+
+
+
+    <!-- ==================================================
+         DSA PROGRESS
+    ================================================== -->
+
+    <div class="form-card">
+
+        <h2>📊 DSA Progress</h2>
+
+
+        <label>
+            Problems Solved
+        </label>
+
+        <input
+            id="solved"
+            type="number"
+            min="0"
+        >
+
+
+        <label>
+            DSA Completion (%)
+        </label>
+
+        <input
+            id="completion"
+            type="number"
+            min="0"
+            max="100"
+        >
+
+
+        <label>
+            Topics Completed
+        </label>
+
+        <textarea
+            id="topics"
+            placeholder="Example: Arrays, Strings, Binary Search..."
+        ></textarea>
+
+
+        <button onclick="updateDSA()">
+            Update DSA
+        </button>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ABOUT ME
+    ================================================== -->
+
+    <div class="form-card">
+
+        <h2>👤 About Me</h2>
+
+
+        <label>
+            About Text
+        </label>
+
+        <textarea
+            id="about"
+            placeholder="Write something about yourself..."
+        ></textarea>
+
+
+        <button onclick="updateAbout()">
+            Update About
+        </button>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ACHIEVEMENTS
+    ================================================== -->
+
+    <div class="form-card">
+
+        <h2>🏆 Add Achievement</h2>
+
+
+        <label>
+            Achievement Title
+        </label>
+
+        <input
+            id="achievementTitle"
+            placeholder="e.g. Solved 100 LeetCode Problems"
+        >
+
+
+        <label>
+            Description
+        </label>
+
+        <textarea
+            id="achievementDescription"
+            placeholder="Describe your achievement..."
+        ></textarea>
+
+
+        <button onclick="addAchievement()">
+            Add Achievement
+        </button>
+
+
+        <!-- Existing achievements appear here -->
+
+        <div id="achievementItems"></div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         CERTIFICATIONS
+    ================================================== -->
+
+    <div class="form-card">
+
+        <h2>📜 Add Certification</h2>
+
+
+        <label>
+            Certification Name
+        </label>
+
+        <input
+            id="certName"
+            placeholder="e.g. Python for Data Science"
+        >
+
+
+        <label>
+            Platform / Issuer
+        </label>
+
+        <input
+            id="certPlatform"
+            placeholder="e.g. Coursera"
+        >
+
+
+        <label>
+            Date
+        </label>
+
+        <input
+            id="certDate"
+            placeholder="e.g. August 2026"
+        >
+
+
+        <label>
+            Certificate Link
+        </label>
+
+        <input
+            id="certLink"
+            type="url"
+            placeholder="https://..."
+        >
+
+
+        <button onclick="addCertification()">
+            Add Certification
+        </button>
+
+
+        <!-- Existing certifications appear here -->
+
+        <div id="certItems"></div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         LEARNING JOURNEY
+    ================================================== -->
+
+    <div class="form-card">
+
+        <h2>🚀 Add Journey Update</h2>
+
+
+        <label>
+            Milestone Title
+        </label>
+
+        <input
+            id="journeyTitle"
+            placeholder="e.g. Completed Binary Trees"
+        >
+
+
+        <label>
+            Description
+        </label>
+
+        <textarea
+            id="journeyDescription"
+            placeholder="Describe what you learned or achieved..."
+        ></textarea>
+
+
+        <button onclick="addJourney()">
+            Add Journey Update
+        </button>
+
+
+        <!-- Existing journey items appear here -->
+
+        <div id="journeyItems"></div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         SKILLS
+    ================================================== -->
+
+    <div class="form-card">
+
+        <h2>💻 Update Skill Percentages</h2>
+
+
+        <p>
+            <small>
+                Enter values from 0 to 100.
+            </small>
+        </p>
+
+
+        <!-- JavaScript creates skill inputs here -->
+
+        <div id="skillInputs"></div>
+
+
+        <button onclick="updateSkills()">
+            Update Skills
+        </button>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         RESET
+    ================================================== -->
+
+    <div
+        class="form-card"
+        style="text-align:center"
+    >
+
+        <h2>⚠️ Reset</h2>
+
+
+        <p>
+            <small>
+                This restores the original demo data.
+            </small>
+        </p>
+
+
+        <button
+            class="danger"
+            onclick="resetData()"
+        >
+            Reset All Data
+        </button>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<!-- IMPORTANT:
+     JavaScript is inside Flask's static folder -->
+
+<script src="{{ url_for('static', filename='script.js') }}">
+</script>
+
+
+</body>
+
+</html>
