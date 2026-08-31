@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sameer | Portfolio</title>
+
+    <!-- Flask loads CSS from static folder -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION BAR
+    ========================== -->
+
+    <nav>
+
+        <a href="#about">About</a>
+
+        <a href="#skills">Skills</a>
+
+        <a href="#dsa">DSA Progress</a>
+
+        <a href="#achievements">Achievements</a>
+
+        <a href="#journey">Journey</a>
+
+        <a href="#certifications">Certifications</a>
+
+        <a href="#goals">Goals</a>
+
+        <!-- IMPORTANT: Flask route -->
+        <a href="{{ url_for('admin') }}">⚙️ Admin</a>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <h1>Hi, I'm Sameer 👋</h1>
+
+            <h2>
+                Engineering Student |
+                C++ Programmer |
+                Python Learner
+            </h2>
+
+            <p>
+                A first-year engineering student building
+                programming fundamentals, solving DSA problems,
+                learning Python and exploring Machine Learning.
+            </p>
+
+            <a class="btn" href="#about">
+                Know More About Me
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         ABOUT SECTION
+    ========================== -->
+
+    <section id="about">
+
+        <h2>About Me</h2>
+
+        <div class="about">
+
+            <!-- script.js will update this -->
+            <p id="aboutText">
+                I am Sameer, a first-year engineering student
+                with a strong interest in programming, problem
+                solving and technology.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS SECTION
+    ========================== -->
+
+    <section id="skills">
+
+        <h2>My Current Skills</h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>💻 C++</h3>
+
+                <p>
+                    My strongest programming language currently.
+                    I use C++ for DSA, competitive programming
+                    and problem solving.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🧠 DSA</h3>
+
+                <p>
+                    Learning algorithms, data structures and
+                    problem-solving techniques.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🐍 Python</h3>
+
+                <p>
+                    Learning Python as a foundation for
+                    Machine Learning and data analysis.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🔢 NumPy</h3>
+
+                <p>
+                    Learning arrays, matrices, slicing,
+                    reshaping, statistics and linear algebra.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🐼 Pandas</h3>
+
+                <p>
+                    Beginning to explore Pandas for
+                    data manipulation and analysis.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🌐 Flask</h3>
+
+                <p>
+                    Learning how Python can be used to
+                    create web applications.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🖥️ VS Code</h3>
+
+                <p>
+                    One of my primary development
+                    environments.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🏆 Competitive Programming</h3>
+
+                <p>
+                    Practicing through LeetCode and
+                    Codeforces.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         DSA PROGRESS
+    ========================== -->
+
+    <section id="dsa">
+
+        <h2>📊 DSA Progress</h2>
+
+        <p class="update-note">
+            This section can be updated from the Admin page.
+        </p>
+
+
+        <div class="cards">
+
+
+            <!-- Problems solved -->
+
+            <div class="card">
+
+                <h3>🔥 Problems Solved</h3>
+
+                <p>
+
+                    <strong id="dsaSolved">
+                        60
+                    </strong>
+
+                    coding problems
+
+                </p>
+
+            </div>
+
+
+            <!-- DSA completion -->
+
+            <div class="card">
+
+                <h3>📈 DSA Completion</h3>
+
+                <p>
+
+                    <strong id="dsaCompletion">
+                        65%
+                    </strong>
+
+                    of my current roadmap
+
+                </p>
+
+            </div>
+
+
+            <!-- Topics -->
+
+            <div class="card">
+
+                <h3>📚 Topics Completed</h3>
+
+                <p id="dsaTopics">
+
+                    Arrays, Strings, Vectors,
+                    Hashing, Sorting, Binary Search,
+                    Two Pointers, Sliding Window
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROGRAMMING PROGRESS
+    ========================== -->
+
+    <section id="programming-progress">
+
+        <h2>Programming Progress</h2>
+
+        <!-- script.js will generate progress bars here -->
+
+        <div id="skillsProgress">
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ACHIEVEMENTS
+    ========================== -->
+
+    <section id="achievements">
+
+        <h2>🏆 Achievements</h2>
+
+        <!-- script.js will add achievements here -->
+
+        <div id="achievementsList"
+             class="cards">
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         LEARNING JOURNEY
+    ========================== -->
+
+    <section id="journey">
+
+        <h2>🚀 My Learning Journey</h2>
+
+        <p class="update-note">
+
+            Add a new milestone whenever you
+            learn or achieve something important.
+
+        </p>
+
+
+        <!-- script.js will add journey items here -->
+
+        <div id="journeyList"
+             class="timeline">
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CERTIFICATIONS
+    ========================== -->
+
+    <section id="certifications">
+
+        <h2>📜 Certifications</h2>
+
+
+        <!-- script.js will add certifications here -->
+
+        <div id="certificationsList"
+             class="cards">
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         GOALS
+    ========================== -->
+
+    <section id="goals">
+
+        <h2>My Goals</h2>
+
+
+        <div class="goal">
+
+            <h3>🎯 Short-Term Goal</h3>
+
+            <p>
+                Build strong fundamentals in C++,
+                Data Structures and Algorithms.
+            </p>
+
+        </div>
+
+
+        <div class="goal">
+
+            <h3>🎯 Python Goal</h3>
+
+            <p>
+                Become confident with Python,
+                NumPy and Pandas.
+            </p>
+
+        </div>
+
+
+        <div class="goal">
+
+            <h3>🎯 Project Goal</h3>
+
+            <p>
+                Start building real-world projects
+                instead of learning only through
+                individual coding problems.
+            </p>
+
+        </div>
+
+
+        <div class="goal">
+
+            <h3>🎯 Long-Term Goal</h3>
+
+            <p>
+                Become a strong software engineer and
+                eventually work in Machine Learning,
+                AI or another technology field.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         HOW I SEE MYSELF
+    ========================== -->
+
+    <section>
+
+        <h2>How I See Myself</h2>
+
+
+        <div class="about">
+
+            <p>
+
+                I am still at the beginning of my
+                engineering and programming journey.
+
+                I don't consider myself an expert yet.
+
+                Instead, I am actively building
+                the fundamentals.
+
+            </p>
+
+
+            <br>
+
+
+            <p>
+
+                One of my biggest strengths is that
+                I keep asking questions when I don't
+                understand something.
+
+                Whether it is a C++ error, a DSA concept,
+                a Python problem, NumPy function or
+                Flask code, I try to understand the
+                reason behind the problem.
+
+            </p>
+
+
+            <br>
+
+
+            <p>
+
+                My current journey is moving from
+
+                <strong>
+                    learning syntax →
+                    understanding concepts →
+                    solving problems →
+                    building projects.
+                </strong>
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <h3>
+            Sameer's Programming Journey 🚀
+        </h3>
+
+
+        <p>
+            Learn • Practice • Build • Improve
+        </p>
+
+
+        <br>
+
+
+        <!-- IMPORTANT:
+             Use Flask route instead of admin.html -->
+
+        <p>
+
+            <a href="{{ url_for('admin') }}">
+
+                ⚙️ Open My Update Panel
+
+            </a>
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+            © 2026 Sameer. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <!-- Flask loads JS from static folder -->
+
+    <script src="{{ url_for('static', filename='script.js') }}">
+    </script>
+
+
+</body>
+
+</html>
